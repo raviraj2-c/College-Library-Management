@@ -16,11 +16,11 @@ public class Add_book {
 	}
 	public Add_book(int id, String book_Name, String auther, String category, String book_id) {
 		super();
-		Id = id;
-		Book_Name = book_Name;
-		Auther = auther;
-		Category = category;
-		Book_id = book_id;
+		this.Id = id;
+		this.Book_Name = book_Name;
+		this.Auther = auther;
+		this.Category = category;
+		this.Book_id = book_id;
 	}
 	@Override
 	public boolean equals(Object obj) {
@@ -61,8 +61,8 @@ public class Add_book {
 	public String getBook_id() {
 		return Book_id;
 	}
-	public void setBook_id(String book_id) {
-		Book_id = book_id;
+	public void setBook_id(String id2) {
+		Book_id = id2;
 	}
 	
 	@Override

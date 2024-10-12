@@ -15,7 +15,7 @@
 
 
 			<div class="col-md-5 my-5">
-				<a href="Book_management.jsp">
+				<a href="Book_all.jsp">
 					<div class="card">
 						<div class="card-body text-center">
 							<i class="fas fa-plus-square fa-3x text-primary"></i><br>
@@ -26,7 +26,7 @@
 			</div>
 
 			<div class="col-md-5 my-5">
-				<a href="">
+				<a href="Issue_a_book.jsp">
 					<div class="card">
 						<div class="card-body text-center">
 							<i class="fa-solid fa-book-open fa-3x text-danger"></i><br>
@@ -37,7 +37,7 @@
 			</div>
 
 			<div class="col-md-5 my-5">
-				<a href="">
+				<a href="All_book_issue.jsp">
 					<div class="card">
 						<div class="card-body text-center">
 							<i class="fa-solid fa-book-open fa-3x text-danger"></i><br>
@@ -57,23 +57,10 @@
 					</div>
 				</a>
 			</div>
+			
+			
 
-
-
-
-
-			<div class="col-md-5 my-5">
-				<a href="">
-					<div class="card">
-						<div class="card-body text-center">
-							<i class="fa-solid fa-book-open fa-3x text-danger"></i><br>
-							<h4>Available Book</h4>
-						</div>
-					</div>
-				</a>
-			</div>
-
-			<div class="col-md-5 my-5">
+			<div class="col-md-10 my-5">
 				<a data-toggle="modal" data-target="#exampleModalCenter">
 					<div class="card">
 						<div class="card-body text-center">
