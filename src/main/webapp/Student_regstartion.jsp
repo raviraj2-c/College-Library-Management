@@ -1,58 +1,77 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<% 
+    // Check if user is logged in
+    if (session.getAttribute("isLoggedIn") == null || !(Boolean)session.getAttribute("isLoggedIn")) {
+        response.sendRedirect("login.jsp");  // If not logged in, redirect to login page
+        return;
+    }
+%>
+
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Student Registration</title>
-<%@include file="all_connection/Allcss.jsp"%>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Responsive design -->
+    <title>Student Registration</title>
+     <%@include file="all_connection/Allcss.jsp"%> <!-- Include your CSS file -->
+     <!-- Replace with the actual path to index.css -->
+    <link rel="stylesheet" href="css/All_book_issue.css">
+   <link rel="stylesheet" href="css/Student_regstartion.css">
+    <link rel="stylesheet" href="css/Book_all.css">
+    <link rel="stylesheet" href="css/Available_Book.css">
+    <link rel="stylesheet" href="css/Book_management.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"> <!-- Bootstrap CSS -->
+
+    
 </head>
-<body style="background-color: black;">
-	<%@include file="all_connection/navber.jsp"%>
+<body>
+    <%@include file="all_connection/navber.jsp"%> <!-- Navigation bar inclusion -->
 
-	<div class="container, px-4, py-4, and bg-white p-5">
+    <div class="container p-5 my-5">
+        <h2 class="text-center text-decoration-underline">Student Registration</h2>
 
-		<h2 class="text-center text-decoration-underline">Student
-			Registration</h2>
-		<form action="add_student" method="Post" class="p-5">
-			<div class="form-row">
-				<div class="form-group col-md-6">
-					<label for="inputEmail4">Name</label> <input type="text"
-						name="Name" class="form-control" id="inputEmail4"
-						placeholder="Student Name">
-				</div>
-				<div class="form-group col-md-6">
-					<label for="inputPassword4">Department</label> <input type="text"
-						name="Department" class="form-control" id="inputPassword4"
-						placeholder="Name Of Department">
-				</div>
-				<div class="form-group col-md-6">
-					<label for="inputPassword4">Phone Number</label> <input
-						type="number" name="Phone_number" class="form-control"
-						id="inputPassword4" placeholder="Phone Number">
-				</div>
-				<div class="form-group col-md-6">
-					<label for="inputPassword4">College Id</label> <input type="number"
-						name="College_id" class="form-control" id="inputPassword4"
-						placeholder="College Id">
-				</div>
-			</div>
-			<div class="form-group">
-				<label for="inputAddress">Address</label> <input type="text"
-					name="Address" class="form-control" id="inputAddress"
-					placeholder="1234 Main St">
-			</div>
+        <form action="add_student" method="Post">
+            <div class="row">
+                <!-- Student Name -->
+                <div class="form-group col-md-6 mb-3">
+                    <label for="inputName">Name</label>
+                    <input type="text" name="Name" class="form-control" id="inputName" placeholder="Enter Student Name" required>
+                </div>
+                <!-- Department -->
+                <div class="form-group col-md-6 mb-3">
+                    <label for="inputDepartment">Department</label>
+                    <input type="text" name="Department" class="form-control" id="inputDepartment" placeholder="Enter Department" required>
+                </div>
+                <!-- Phone Number -->
+                <div class="form-group col-md-6 mb-3">
+                    <label for="inputPhone">Phone Number</label>
+                    <input type="tel" name="Phone_number" class="form-control" id="inputPhone" placeholder="Enter Phone Number" required>
+                </div>
+                <!-- College ID -->
+                <div class="form-group col-md-6 mb-3">
+                    <label for="inputCollegeId">College ID</label>
+                    <input type="number" name="College_id" class="form-control" id="inputCollegeId" placeholder="Enter College ID" required>
+                </div>
+            </div>
 
+            <!-- Address -->
+            <div class="form-group mb-3">
+                <label for="inputAddress">Address</label>
+                <input type="text" name="Address" class="form-control" id="inputAddress" placeholder="Enter Address (e.g. 1234 Main St)" required>
+            </div>
 
-			<div class="form-group">
-				<div class="form-check">
-					<input class="form-check-input" type="checkbox" id="gridCheck">
-					<label class="form-check-label" for="gridCheck"> Check me
-						out </label>
-				</div>
-			</div>
-			<button type="submit" class="btn btn-primary">Sign in</button>
-		</form>
-	</div>
+            <!-- Checkbox -->
+            <div class="form-group form-check mb-4">
+                <input class="form-check-input" type="checkbox" id="gridCheck" required>
+                <label class="form-check-label" for="gridCheck">Check me out</label>
+            </div>
+
+            <!-- Submit Button -->
+            <button type="submit" class="btn btn-primary w-100">Register</button> <!-- Full-width button -->
+        </form>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

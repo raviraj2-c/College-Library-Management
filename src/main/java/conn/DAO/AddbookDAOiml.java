@@ -7,7 +7,7 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
-
+import conn.DB.DBConnect;
 import conn.entity.Add_book;
 import conn.entity.Student_regstration;
 
@@ -150,6 +150,32 @@ public class AddbookDAOiml implements AddbookDAO {
 		}
 		return f;
 
+	}
+
+	@Override
+	public List<Add_book> searchBooks(String query) {
+		List<Add_book> books = new ArrayList<>();
+        try {
+            Connection conn = DBConnect.getConn();
+            String sql = "SELECT * FROM all_books WHERE Book_Name LIKE ? OR Auther LIKE ? OR Category LIKE ?";
+            PreparedStatement pst = conn.prepareStatement(sql);
+            pst.setString(1, "%" + query + "%");
+            pst.setString(2, "%" + query + "%");
+            pst.setString(3, "%" + query + "%");
+            ResultSet rs = pst.executeQuery();
+            while (rs.next()) {
+                Add_book book = new Add_book();
+                book.setId(rs.getInt("id"));
+                book.setBook_Name(rs.getString("Book_Name"));
+                book.setAuther(rs.getString("Auther"));
+                book.setCategory(rs.getString("Category"));
+                book.setBook_id(rs.getString("Book_id"));
+                books.add(book);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return books;
 	}
 
 	

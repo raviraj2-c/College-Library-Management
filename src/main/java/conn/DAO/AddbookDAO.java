@@ -13,5 +13,6 @@ public interface AddbookDAO {
 	public boolean deletebooks(int id);
 	public Add_book getBookById(int id);
 	public boolean updateEditBooks(Add_book b);
+	public List<Add_book> searchBooks(String query);
 	
 }

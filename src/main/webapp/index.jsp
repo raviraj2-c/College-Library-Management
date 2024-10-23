@@ -1,77 +1,91 @@
+<% 
+    if (session.getAttribute("isLoggedIn") == null || !(Boolean)session.getAttribute("isLoggedIn")) {
+        response.sendRedirect("login.jsp");  
+        return;
+    }
+%>
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>Callege Library</title>
+    <meta charset="UTF-8">
+    <title>College Library - Home</title>
 
-<%@include file="all_connection/Allcss.jsp"%>
+    <%@include file="all_connection/Allcss.jsp"%>
+    
+     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
+     
+     <link rel="stylesheet" href="css/index.css"> 
+     
 </head>
-<body style="background-color: black;">
-	<%@include file="all_connection/navber.jsp"%>
-	<div class="container ">
-		<div class="row p-5">
+<body>
+    
+    <div class="book floating-book-1"></div>
+    <div class="book floating-book-2"></div>
+    <div class="book floating-book-3"></div>
 
+<%@include file="all_connection/navber.jsp"%>
+	
 
-			<div class="col-md-5 my-5">
-				<a href="Book_all.jsp">
-					<div class="card">
-						<div class="card-body text-center">
-							<i class="fas fa-plus-square fa-3x text-primary"></i><br>
-							<h4>Book Management</h4>
-						</div>
-					</div>
-				</a>
-			</div>
+    <div class="container">
+        <h2>Welcome to the College Library, <%= session.getAttribute("username") %>!</h2>
+        <div class="row mt-5 justify-content-center">
 
-			<div class="col-md-5 my-5">
-				<a href="Issue_a_book.jsp">
-					<div class="card">
-						<div class="card-body text-center">
-							<i class="fa-solid fa-book-open fa-3x text-danger"></i><br>
-							<h4>Issue A Book</h4>
-						</div>
-					</div>
-				</a>
-			</div>
+            
+            <div class="col-md-4 mb-5">
+                <a href="Book_all.jsp" class="text-decoration-none">
+                    <div class="card text-center">
+                        <i class="fas fa-book icon-large"></i>
+                        <h4 class="mt-3">Book Management</h4>
+                    </div>
+                </a>
+            </div>
 
-			<div class="col-md-5 my-5">
-				<a href="All_book_issue.jsp">
-					<div class="card">
-						<div class="card-body text-center">
-							<i class="fa-solid fa-book-open fa-3x text-danger"></i><br>
-							<h4>All Book Issued</h4>
-						</div>
-					</div>
-				</a>
-			</div>
+           
+            <div class="col-md-4 mb-5">
+                <a href="Issue_a_book.jsp" class="text-decoration-none">
+                    <div class="card text-center">
+                        <i class="fas fa-book-open icon-large"></i>
+                        <h4 class="mt-3">Issue A Book</h4>
+                    </div>
+                </a>
+            </div>
 
-			<div class="col-md-5 my-5">
-				<a href="Student_regstartion.jsp">
-					<div class="card">
-						<div class="card-body text-center">
-							<i class="fa-solid fa-bag-shopping fa-3x text-warning"></i> <br>
-							<h4>Student Registration</h4>
-						</div>
-					</div>
-				</a>
-			</div>
-			
-			
+            
+            <div class="col-md-4 mb-5">
+                <a href="All_book_issue.jsp" class="text-decoration-none">
+                    <div class="card text-center">
+                        <i class="fas fa-list icon-large"></i>
+                        <h4 class="mt-3">All Books Issued</h4>
+                    </div>
+                </a>
+            </div>
 
-			<div class="col-md-10 my-5">
-				<a data-toggle="modal" data-target="#exampleModalCenter">
-					<div class="card">
-						<div class="card-body text-center">
-							<i class="fa-solid fa-right-from-bracket fa-3x text-primary"></i><br>
-							<h4>Logout</h4>
-						</div>
-					</div>
-				</a>
-			</div>
+            
+            <div class="col-md-4 mb-5">
+                <a href="Student_regstartion.jsp" class="text-decoration-none">
+                    <div class="card text-center">
+                        <i class="fas fa-user-plus icon-large"></i>
+                        <h4 class="mt-3">Student Registration</h4>
+                    </div>
+                </a>
+            </div>
 
-		</div>
-	</div>
+           
+            <div class="col-md-4 mb-5">
+                <a href="LogoutServlet" class="text-decoration-none">
+                    <div class="card text-center" style="background-color: #ff5c5c;">
+                        <i class="fas fa-sign-out-alt icon-large"></i>
+                        <h4 class="mt-3">Logout</h4>
+                    </div>
+                </a>
+            </div>
+
+        </div>
+    </div>
+
+     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
 </body>
 </html>

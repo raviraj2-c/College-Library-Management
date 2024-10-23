@@ -3,6 +3,8 @@ package conn.DAO;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.List;
 
 import conn.DB.DBConnect;
 import conn.entity.Add_book;
@@ -46,6 +48,32 @@ public  class StudentDAOiml implements StudentDAO {
 		return f;
 	}
 
+	@Override
+	public List<Student_regstration> searchStudents(String query) {
+		 List<Student_regstration> students = new ArrayList<>();
+	        try {
+	            Connection conn = DBConnect.getConn();
+	            String sql = "SELECT * FROM callege_library_managment WHERE Name LIKE ?";
+	            PreparedStatement pst = conn.prepareStatement(sql);
+	            pst.setString(1, "%" + query + "%");
+	            ResultSet rs = pst.executeQuery();
+	            while (rs.next()) {
+	            	Student_regstration student = new Student_regstration();
+	                student.setId(rs.getInt("id"));
+	                student.setName(rs.getString("name"));
+	                student.setDepartment(rs.getString("department"));
+	                student.setPhone_number(rs.getString("Phone_number"));
+	                student.setCollege_id(rs.getString("College_id"));
+	                students.add(student);
+	            }
+	        } catch (Exception e) {
+	            e.printStackTrace();
+	        }
+	        return students;
+	}
+
+	
+	
 	
 	
 }

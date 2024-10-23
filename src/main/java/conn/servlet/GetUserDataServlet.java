@@ -1,6 +1,8 @@
 package conn.servlet;
 
 import conn.DAO.UserDAO;
+import conn.DAO.UserDAOIml;
+import conn.DB.DBConnect;
 import conn.entity.Student_regstration;
 
 import javax.servlet.ServletException;
@@ -19,7 +21,7 @@ public class GetUserDataServlet extends HttpServlet {
             String userId = userIdParam;
 
             // Fetch the user data from the database using UserDAO
-            UserDAO userDAO = new UserDAO();
+            UserDAOIml userDAO = new UserDAOIml(DBConnect.getConn());
             Student_regstration user = userDAO.getUserById(userId);
 
             if (user != null) {

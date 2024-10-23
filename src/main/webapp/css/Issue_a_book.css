@@ -1,0 +1,20 @@
+
+        .container {
+            background-color: white; /* White background for the table */
+            border-radius: 15px; /* Rounded corners */
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+            padding: 30px; /* Increased padding */
+        }
+        h2 {
+            color: #007bff; /* Primary color for the heading */
+            margin-bottom: 20px; /* Spacing below the heading */
+        }
+        .table thead th {
+            background-color: #007bff; /* Bootstrap primary color */
+            color: white; /* White text for contrast */
+        }
+        
+        .btn-danger:hover {
+            background-color: #c82333; /* Darker red on hover */
+            border-color: #bd2130;
+        }

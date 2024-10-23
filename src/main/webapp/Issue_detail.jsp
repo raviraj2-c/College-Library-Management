@@ -1,3 +1,13 @@
+<% 
+    // Check if user is logged in
+    if (session.getAttribute("isLoggedIn") == null || !(Boolean)session.getAttribute("isLoggedIn")) {
+        response.sendRedirect("login.jsp");  // If not logged in, redirect to login page
+        return;
+    }
+%>
+
+
+
 <%@page import="conn.entity.Issue_book"%>
 <%@page import="conn.DB.DBConnect"%>
 <%@page import="conn.DAO.IssueDAOiml"%>
