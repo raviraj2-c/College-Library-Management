@@ -21,7 +21,7 @@ This project is a web application designed to simplify and manage library operat
 
 1. Clone this repository:
     ```bash
-    git clone https://github.com/yourusername/CollegeLibraryManagementSystem.git
+    git clone https://github.com/raviraj2-c/College-Library-Management.git
     ```
 2. Import the project into your IDE (e.g., IntelliJ IDEA, Eclipse).
 3. Set up the MySQL database and update the database configuration in the code.
